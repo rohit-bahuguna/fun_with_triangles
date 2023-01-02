@@ -1,25 +1,30 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
-
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import AreaOfTriangle from './components/Area_of_triangle/AreaOfTriangle';
+import Header from './components/Header';
+import Hypotonuse from './components/Hypotonuse/Hypotonuse';
+import TriangleQuiz from './components/Quiz/TriangleQuiz';
+import CorrectAns from './components/Quiz/CorrectAns';
+export default function App() {
+	return (
+		<div>
+			<BrowserRouter>
+				<Header />
+				<Routes>
+					<Route path="/" element={<TriangleQuiz />} />
+					<Route path="/triangle" element={<TriangleQuiz />} />
+					<Route path="/areaoftriangle" element={<AreaOfTriangle />} />
+					<Route path="/hypotonuse" element={<Hypotonuse />} />
+					<Route path="/correctans/:answer" element={<CorrectAns />} />
+				</Routes>
+			</BrowserRouter>
+		</div>
+	);
 }
 
-export default App;
+{
+	/* <TriangleQuiz />
+			<AreaOfTriangle />
+			<Hypotonuse /> */
+}
